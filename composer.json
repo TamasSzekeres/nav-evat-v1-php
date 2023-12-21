@@ -1,0 +1,57 @@
+{
+  "name": "light-side-software/nav-evat-v1-php",
+  "description": "Nav eÁfa rendszer PHP-Kliens",
+  "type": "library",
+  "keywords": [
+    "nav",
+    "api",
+    "client",
+    "evat",
+    "php"
+  ],
+  "require": {
+    "php": ">=8.2",
+    "guzzlehttp/guzzle": "^7.3",
+    "jms/serializer": "^3.14",
+    "psr/clock": "^1",
+    "ext-mbstring": "*",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "LightSideSoftware\\EVat\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LightSideSoftware\\EVat\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "pest"
+  },
+  "authors": [
+    {
+      "name": "Tamás Szekeres",
+      "email": "szektam2@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "symfony/flex": true
+    }
+  }
+}

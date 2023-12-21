@@ -1,0 +1,104 @@
+name: Pest Tests
+on:
+  push:
+    branches:
+      - master
+
+# Allow GITHUB_TOKEN to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: [ '8.2' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: P${{ matrix.php-versions }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system}}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install PHP versions
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+    - name: Get Composer Cache Directory 2
+      id: composer-cache
+      run: |
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - uses: actions/cache@v3
+      id: actions-cache
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+    - name: Cache PHP dependencies
+      uses: actions/cache@v3
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+    - name: Install Dependencies
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Show dir
+      run: pwd
+    - name: PHP Version
+      run: php --version
+
+# Code quality
+    - name: Execute tests (Unit and Feature tests) via PestPHP
+# Set environment
+      env:
+        XDEBUG_MODE: coverage
+      run: |
+        vendor/bin/pest --coverage-clover clover.xml
+
+    - name: Generate test coverage badge
+      uses: timkrase/phpunit-coverage-badge@v1.2.0
+      with:
+        coverage_badge_path: 'badge-coverage.svg'
+        push_badge: true
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+
+# Documentation
+    - name: Configure GitHub Pages
+      uses: actions/configure-pages@v1
+    - name: Cache phpDocumentor build files
+      id: phpdocumentor-cache
+      uses: actions/cache@v3
+      with:
+        path: .phpdoc/cache
+        key: ${{ runner.os }}-phpdocumentor-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-phpdocumentor-
+    - name: Build with phpDocumentor
+      run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 run -vv -d src/ --target docs --cache-folder .phpdoc/cache --template default
+    - name: Upload artifact to GitHub Pages
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: docs
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
