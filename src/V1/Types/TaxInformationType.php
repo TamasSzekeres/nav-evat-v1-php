@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
-use LightSideSoftware\EVat\V1\Types\Annotations\SimpleText50NotBlankTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText50NotBlankTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Adózási adatok.
@@ -21,12 +23,14 @@ final readonly class TaxInformationType extends BaseType
          * @var string A tétel standard adókódja.
          */
         #[SimpleText50NotBlankTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $standardTaxCode,
 
         /**
          * @var string A tétel vállalati adókódja.
          */
         #[SimpleText50NotBlankTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $ownTaxCode,
 
         /**

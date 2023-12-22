@@ -7,6 +7,7 @@ namespace LightSideSoftware\EVat\V1\Types;
 use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use LightSideSoftware\EVat\V1\Types\Enums\OutOfTurnDeclarationCodeType;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Eljárási nyilatkozatok.

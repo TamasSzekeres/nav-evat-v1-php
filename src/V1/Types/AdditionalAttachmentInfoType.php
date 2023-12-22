@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Csatolmány egyéb adatai.

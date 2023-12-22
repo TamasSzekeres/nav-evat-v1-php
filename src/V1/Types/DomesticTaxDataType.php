@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxPayerIdTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Belföldi adószám adatok.
@@ -19,6 +21,7 @@ final readonly class DomesticTaxDataType extends BaseType
          * @var string Az adószám 8 jegyű törzsszáma.
          */
         #[TaxPayerIdTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $taxNumber,
 
         /**
@@ -26,6 +29,7 @@ final readonly class DomesticTaxDataType extends BaseType
          */
         #[SkipWhenEmpty]
         #[TaxPayerIdTypeValidation]
+        #[XmlElement(cdata: false)]
         public ?string $groupMemberTaxNumber = null,
     ) {
         parent::__construct();

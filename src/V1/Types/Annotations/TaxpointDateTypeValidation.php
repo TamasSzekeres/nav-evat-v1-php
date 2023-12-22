@@ -6,6 +6,7 @@ namespace LightSideSoftware\EVat\V1\Types\Annotations;
 
 use Attribute;
 use DateTimeImmutable;
+use LightSideSoftware\NavApi\V3\Types\Annotations\DateTimeValidation;
 
 /**
  * Adózási dátum típus (amely napon az adófizetési kötelezettség és/vagy a levonási jog keletkezett).

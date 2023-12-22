@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use LightSideSoftware\NavApi\V3\Types\BaseType;
+
 /**
  * Visszaigénylés módja.
  *

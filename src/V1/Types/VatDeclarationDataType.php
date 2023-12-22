@@ -8,7 +8,8 @@ use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Az ÁFA bevallás adatai.

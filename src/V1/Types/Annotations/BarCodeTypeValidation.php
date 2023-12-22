@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types\Annotations;
 
 use Attribute;
+use LightSideSoftware\NavApi\V3\Types\Annotations\IntegerValidation;
 
 /**
  * Bárkód típus.
@@ -20,8 +21,8 @@ final class BarCodeTypeValidation extends IntegerValidation
     public function __construct()
     {
         parent::__construct(
-            totalDigits: 10,
-            pattern: '[0-9]{10}',
+            minInclusive: 1000000000,
+            maxInclusive: 9999999999,
         );
     }
 }

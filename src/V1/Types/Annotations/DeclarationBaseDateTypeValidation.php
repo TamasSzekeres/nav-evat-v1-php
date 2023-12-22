@@ -6,6 +6,7 @@ namespace LightSideSoftware\EVat\V1\Types\Annotations;
 
 use Attribute;
 use DateTimeImmutable;
+use LightSideSoftware\NavApi\V3\Types\Annotations\DateTimeValidation;
 
 /**
  * Alap bevallási dátum típus.

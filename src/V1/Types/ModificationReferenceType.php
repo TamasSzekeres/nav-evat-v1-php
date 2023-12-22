@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Annotations\BarCodeTypeValidation;
-use LightSideSoftware\EVat\V1\Types\Annotations\EntityIdTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\GenericUnsignedIntegerTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\EntityIdTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Módosítás adatai.
@@ -21,6 +23,7 @@ final readonly class ModificationReferenceType extends BaseType
          * @var string A módosítással érintett bevallás feldolgozási azonosítója.
          */
         #[EntityIdTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $declarationReferenceId,
 
         /**

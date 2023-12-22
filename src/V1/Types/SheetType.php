@@ -7,11 +7,13 @@ namespace LightSideSoftware\EVat\V1\Types;
 use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\SheetPageCountTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\VpidTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Enums\SheetNameType;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Melléklap.
@@ -54,6 +56,7 @@ final readonly class SheetType extends BaseType
          */
         #[SkipWhenEmpty]
         #[VpidTypeValidation]
+        #[XmlElement(cdata: false)]
         public ?string $vpid = null,
     ) {
         parent::__construct();

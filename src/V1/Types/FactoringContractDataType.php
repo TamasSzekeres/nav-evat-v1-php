@@ -6,10 +6,13 @@ namespace LightSideSoftware\EVat\V1\Types;
 
 use DateTimeImmutable;
 use InvalidArgumentException;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Annotations\BevfeldText40TypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\DeclarationBaseDateTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxMonetaryTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Enums\FactoringTaxCodeType;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 use function is_null;
 
@@ -25,12 +28,14 @@ final readonly class FactoringContractDataType extends BaseType
          * @var string Faktorálási szerződés száma.
          */
         #[BevfeldText40TypeValidation]
+        #[XmlElement(cdata: false)]
         public string $factoringContractNumber,
 
         /**
          * @var DateTimeImmutable Faktorálási szerződés kelte.
          */
         #[DeclarationBaseDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $factoringContractDate,
 
         /**

@@ -6,10 +6,12 @@ namespace LightSideSoftware\EVat\V1\Types;
 
 use DateTimeImmutable;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
-use LightSideSoftware\EVat\V1\Types\Annotations\SimpleText512NotBlankTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxpointDateTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText512NotBlankTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Főkönyvi adatok.
@@ -31,12 +33,14 @@ final readonly class GeneralLedgerInformationType extends BaseType
          * @var DateTimeImmutable Főkönyvi feladás dátuma.
          */
         #[TaxpointDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $glPostingDate,
 
         /**
          * @var string Főkönyvi könyvelés egyedi azonosítója.
          */
         #[SimpleText512NotBlankTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $glTransactionId,
     ) {
         parent::__construct();

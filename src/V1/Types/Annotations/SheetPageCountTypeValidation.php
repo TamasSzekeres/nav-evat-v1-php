@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types\Annotations;
 
 use Attribute;
+use LightSideSoftware\NavApi\V3\Types\Annotations\IntegerValidation;
 
 /**
  * Melléklap oldalainak száma.
@@ -21,7 +22,7 @@ final class SheetPageCountTypeValidation extends IntegerValidation
     {
         parent::__construct(
             minInclusive: 1,
-            totalDigits: 3,
+            maxInclusive: 999,
         );
     }
 }

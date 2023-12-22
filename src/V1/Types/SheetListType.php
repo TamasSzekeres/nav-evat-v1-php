@@ -6,7 +6,8 @@ namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Melléklapok.

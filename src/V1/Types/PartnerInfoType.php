@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
-use LightSideSoftware\EVat\V1\Types\Annotations\SimpleText512NotBlankTypeValidation;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\PartnerStatusType;
+use LightSideSoftware\NavApi\V3\Types\AddressType;
+use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText512NotBlankTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Partner adatok.
@@ -32,6 +35,7 @@ final readonly class PartnerInfoType extends BaseType
          */
         #[SimpleText512NotBlankTypeValidation]
         #[SkipWhenEmpty]
+        #[XmlElement(cdata: false)]
         public ?string $partnerName = null,
 
         /**

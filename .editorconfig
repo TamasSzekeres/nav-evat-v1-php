@@ -17,5 +17,5 @@ trim_trailing_whitespace = false
 [*.xml.dist]
 indent_size = 2
 
-[*.yml]
+[{*.yml,*.json}]
 indent_size = 2

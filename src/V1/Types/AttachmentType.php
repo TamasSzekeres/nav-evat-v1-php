@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
-use LightSideSoftware\EVat\V1\Types\Annotations\EntityIdTypeValidation;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\AttachmentCategoryType;
+use LightSideSoftware\NavApi\V3\Types\Annotations\EntityIdTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Csatolmányok.
@@ -19,6 +21,7 @@ final readonly class AttachmentType extends BaseType
          * @var string A melléklet feltöltésekor kapott azonosító.
          */
         #[EntityIdTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $claimCheckId,
 
         /**

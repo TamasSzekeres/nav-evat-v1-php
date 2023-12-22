@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
-use LightSideSoftware\EVat\V1\Types\Annotations\BankAccountNumberTypeValidation;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Annotations\BevfeldText80TypeValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\BankAccountNumberTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Belföldi pénzügyi szolgáltató adatai.
@@ -19,12 +21,14 @@ final readonly class DomesticPaymentServiceProviderType extends BaseType
          * @var string Belföldi szolgáltató neve.
          */
         #[BevfeldText80TypeValidation]
+        #[XmlElement(cdata: false)]
         public string $domesticProviderName,
 
         /**
          * @var string Belföldi számlaszám.
          */
         #[BankAccountNumberTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $domesticBankAccountNumber,
     ) {
         parent::__construct();

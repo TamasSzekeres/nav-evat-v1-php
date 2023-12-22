@@ -7,11 +7,14 @@ namespace LightSideSoftware\EVat\V1\Types;
 use DateTimeImmutable;
 use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Annotations\GenericUnsignedIntegerTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxpointDateTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationFrequencyType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationKindType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationTypeType;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * A bevallás fejadatai.
@@ -37,6 +40,7 @@ final readonly class DeclarationInfoType extends BaseType
         /**
          * @var string Adószám.
          */
+        #[XmlElement(cdata: false)]
         public string $taxNumber,
 
         /**
@@ -58,12 +62,14 @@ final readonly class DeclarationInfoType extends BaseType
          * @var DateTimeImmutable Bevallási időszak kezdete.
          */
         #[TaxpointDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $declarationPeriodStart,
 
         /**
          * @var DateTimeImmutable Bevallási időszak vége.
          */
         #[TaxpointDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $declarationPeriodEnd,
 
         /**

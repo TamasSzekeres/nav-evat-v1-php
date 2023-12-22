@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxMonetaryTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxRateTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Levonási adatok.

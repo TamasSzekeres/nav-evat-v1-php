@@ -8,13 +8,15 @@ use DateTimeImmutable;
 use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
-use LightSideSoftware\EVat\V1\Types\Annotations\ArrayValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\DeclarationBaseDateTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\GenericUnsignedIntegerTypeValidation;
-use LightSideSoftware\EVat\V1\Types\Annotations\SimpleText50NotBlankTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Annotations\TaxpointDateTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Enums\SourceDocumentTypeType;
+use LightSideSoftware\NavApi\V3\Types\Annotations\ArrayValidation;
+use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText50NotBlankTypeValidation;
+use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
  * Analitika tételsor adatai.
@@ -47,18 +49,21 @@ final readonly class VatAnalyticsItemType extends BaseType
          * @var string Forrás dokumentum egyedi azonosítója.
          */
         #[SimpleText50NotBlankTypeValidation]
+        #[XmlElement(cdata: false)]
         public string $sourceDocumentId,
 
         /**
          * @var DateTimeImmutable Forrás dokumentum kiállítási dátuma.
          */
         #[DeclarationBaseDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $sourceDocumentIssueDate,
 
         /**
          * @var DateTimeImmutable Adó esedékességi napja.
          */
         #[TaxpointDateTypeValidation]
+        #[Type("DateTimeImmutable<'Y-m-d'>")]
         public DateTimeImmutable $taxpointDate,
 
         /**
