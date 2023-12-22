@@ -38,6 +38,7 @@ final readonly class DeclarationInfoType extends BaseType
          * @var string Adószám.
          */
         public string $taxNumber,
+
         /**
          * @var DeclarationTypeType Bevallás típusa.
          */
