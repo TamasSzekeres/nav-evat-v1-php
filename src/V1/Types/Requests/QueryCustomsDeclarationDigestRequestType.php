@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types\Requests;
 
+use JMS\Serializer\Annotation\Type;
 use LightSideSoftware\EVat\V1\Types\DeclarationQueryType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationDirectionType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\RequestPageTypeValidation;
@@ -32,6 +33,7 @@ abstract readonly class QueryCustomsDeclarationDigestRequestType extends BasicEV
         /**
          * @var DeclarationDirectionType Importőri vagy közvetett vámjogi képviselői keresés paramétere.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationDirectionType'>")]
         public DeclarationDirectionType $declarationDirection,
 
         /**

@@ -38,6 +38,7 @@ final readonly class AttachmentListItemType extends BaseType
         /**
          * @var FileExtensionType A feltöltött fájl melléklet kiterjesztése.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\FileExtensionType'>")]
         public FileExtensionType $fileExtension,
 
         /**
@@ -60,6 +61,7 @@ final readonly class AttachmentListItemType extends BaseType
         /**
          * @var FileStatusType A feltöltött fájl státusza.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\FileStatusType'>")]
         public FileStatusType $fileStatus,
     ) {
         parent::__construct();

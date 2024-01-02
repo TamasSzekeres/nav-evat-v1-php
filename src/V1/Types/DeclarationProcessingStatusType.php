@@ -43,6 +43,7 @@ final readonly class DeclarationProcessingStatusType extends BaseType
         /**
          * @var DeclarationStatusType A bevallás feldolgozási státusza.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationStatusType'>")]
         public DeclarationStatusType $declarationStatus,
 
         /**
@@ -60,6 +61,7 @@ final readonly class DeclarationProcessingStatusType extends BaseType
         /**
          * @var DeclarationSchemaType A feltöltött állomány bevallási sémája.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationSchemaType'>")]
         public DeclarationSchemaType $declarationSchema,
 
         /**

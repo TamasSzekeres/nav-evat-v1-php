@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types\Requests;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationDirectionType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\EntityIdTypeValidation;
@@ -40,6 +41,7 @@ abstract readonly class QueryCustomsDeclarationTaxCodeRequestType extends BasicE
         /**
          * @var DeclarationDirectionType Importőri vagy közvetett vámjogi képviselői keresés paramétere.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationDirectionType'>")]
         public DeclarationDirectionType $declarationDirection,
     ) {
         parent::__construct($header, $user, $software);

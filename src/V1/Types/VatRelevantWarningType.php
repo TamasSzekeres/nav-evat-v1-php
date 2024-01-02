@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText100NotBlankTypeValidation;
 use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText512NotBlankTypeValidation;
@@ -22,6 +23,7 @@ final readonly class VatRelevantWarningType extends BaseType
         /**
          * @var BusinessResultCodeType Validációs eredmény.
          */
+        #[Type("Enum<'LightSideSoftware\NavApi\V3\Types\Enums\BusinessResultCodeType'>")]
         public BusinessResultCodeType $validationResultCode,
 
         /**

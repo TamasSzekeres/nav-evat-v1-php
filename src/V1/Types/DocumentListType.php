@@ -24,6 +24,7 @@ final readonly class DocumentListType extends BaseType
         /**
          * @var QueryResultStatusType Lekérdezés feldolgozási státusza.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\QueryResultStatusType'>")]
         public QueryResultStatusType $queryResultStatus,
 
         /**

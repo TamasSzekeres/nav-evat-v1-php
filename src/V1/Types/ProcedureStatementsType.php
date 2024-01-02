@@ -6,6 +6,7 @@ namespace LightSideSoftware\EVat\V1\Types;
 
 use JMS\Serializer\Annotation\AccessorOrder;
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use LightSideSoftware\EVat\V1\Types\Enums\OutOfTurnDeclarationCodeType;
 use LightSideSoftware\NavApi\V3\Types\BaseType;
 
@@ -63,6 +64,7 @@ final readonly class ProcedureStatementsType extends BaseType
          * @var ?OutOfTurnDeclarationCodeType Mentes státusz mellett adókötelezettsége keletkezett.
          */
         #[SkipWhenEmpty]
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\OutOfTurnDeclarationCodeType'>")]
         public ?OutOfTurnDeclarationCodeType $outOfTurnDeclarationCode = null,
     ) {
         parent::__construct();

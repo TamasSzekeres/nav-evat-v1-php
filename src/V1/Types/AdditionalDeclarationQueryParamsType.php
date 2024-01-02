@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use JMS\Serializer\Annotation\Type;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationOperationType;
 use LightSideSoftware\NavApi\V3\Types\BaseType;
 
@@ -18,6 +19,7 @@ final readonly class AdditionalDeclarationQueryParamsType extends BaseType
         /**
          * @var DeclarationOperationType A vámáru határozat típusa.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationOperationType'>")]
         public DeclarationOperationType $declarationOperation,
 
         /**

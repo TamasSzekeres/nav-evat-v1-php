@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationSchemaType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\AtomicStringType15Validation;
@@ -28,6 +29,7 @@ final readonly class DeclarationListItemType extends BaseType
         /**
          * @var DeclarationSchemaType A feltöltött állomány bevallási sémája.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationSchemaType'>")]
         public DeclarationSchemaType $declarationSchema,
 
         /**

@@ -46,16 +46,19 @@ final readonly class DeclarationInfoType extends BaseType
         /**
          * @var DeclarationTypeType Bevallás típusa.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationTypeType'>")]
         public DeclarationTypeType $declarationType,
 
         /**
          * @var DeclarationKindType Bevallás fajtája.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationKindType'>")]
         public DeclarationKindType $declarationKind,
 
         /**
          * @var DeclarationFrequencyType Bevallási gyakoriság.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationFrequencyType'>")]
         public DeclarationFrequencyType $declarationFrequency,
 
         /**

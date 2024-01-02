@@ -58,6 +58,7 @@ final readonly class DeclarationDigestType extends BaseType
         /**
          * @var DeclarationOperationType A vámáru határozat típusa.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationOperationType'>")]
         public DeclarationOperationType $declarationOperation,
 
         /**

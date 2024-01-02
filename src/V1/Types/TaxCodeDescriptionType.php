@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use JMS\Serializer\Annotation\Type;
 use LightSideSoftware\EVat\V1\Types\Enums\LocalizationType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText512NotBlankTypeValidation;
 use LightSideSoftware\NavApi\V3\Types\BaseType;
@@ -19,6 +20,7 @@ final readonly class TaxCodeDescriptionType extends BaseType
         /**
          * @var LocalizationType Leírás nyelve.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\LocalizationType'>")]
         public LocalizationType $localization,
 
         /**

@@ -13,7 +13,7 @@
     "php": ">=8.2",
     "guzzlehttp/guzzle": "^7.3",
     "jms/serializer": "^3.14",
-    "light-side-software/nav-api-v3-php": "dev-master",
+    "light-side-software/nav-api-v3-php": "dev-dev",
     "psr/clock": "^1",
     "ext-mbstring": "*",
     "ext-openssl": "*"
@@ -23,9 +23,9 @@
   },
   "repositories": [
      {
-      "type": "vcs",
-      "url": "https://github.com/TamasSzekeres/nav-api-v3-php"
-    }
+       "type": "vcs",
+       "url": "https://github.com/TamasSzekeres/nav-api-v3-php"
+     }
   ],
   "license": "MIT",
   "autoload": {

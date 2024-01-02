@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types\Requests;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\FileExtensionType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText100NotBlankTypeValidation;
@@ -34,6 +35,7 @@ abstract readonly class ManageAttachmentUploadRequestType extends BasicEVatReque
         /**
          * @var FileExtensionType A feltöltött fájl melléklet kiterjesztése.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\FileExtensionType'>")]
         public FileExtensionType $fileExtension,
 
         /**

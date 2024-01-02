@@ -38,6 +38,7 @@ final readonly class CashRegisterDigestType extends BaseType
         /**
          * @var RegisterTypeType Pénztárgépi gyűjtő azonosítója.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\RegisterTypeType'>")]
         public RegisterTypeType $registerType,
 
         /**

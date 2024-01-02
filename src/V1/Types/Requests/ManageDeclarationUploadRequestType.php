@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LightSideSoftware\EVat\V1\Types\Requests;
 
 use JMS\Serializer\Annotation\SkipWhenEmpty;
+use JMS\Serializer\Annotation\Type;
 use LightSideSoftware\EVat\V1\Types\Annotations\GenericUnsignedIntegerTypeValidation;
 use LightSideSoftware\EVat\V1\Types\AttachmentIdListType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationSchemaType;
@@ -39,6 +40,7 @@ abstract readonly class ManageDeclarationUploadRequestType extends BasicEVatRequ
         /**
          * @var DeclarationSchemaType A feltöltött állomány bevallási sémája.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\DeclarationSchemaType'>")]
         public DeclarationSchemaType $declarationSchema,
 
         /**

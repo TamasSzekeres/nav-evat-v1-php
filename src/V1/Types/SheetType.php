@@ -35,6 +35,7 @@ final readonly class SheetType extends BaseType
         /**
          * @var SheetNameType Melléklap neve.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\SheetNameType'>")]
         public SheetNameType $sheetName,
 
         /**

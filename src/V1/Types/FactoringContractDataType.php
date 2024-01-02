@@ -41,6 +41,7 @@ final readonly class FactoringContractDataType extends BaseType
         /**
          * @var FactoringTaxCodeType Adónem.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\FactoringTaxCodeType'>")]
         public FactoringTaxCodeType $factoringTaxCode,
 
         /**

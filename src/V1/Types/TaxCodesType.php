@@ -70,6 +70,7 @@ final readonly class TaxCodesType extends BaseType
          * @var ?SheetNameType Kötelező melléklap.
          */
         #[SkipWhenEmpty]
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\SheetNameType'>")]
         public ?SheetNameType $mandatorySubpage = null,
 
         /**

@@ -89,6 +89,7 @@ final readonly class VatAnalyticsItemType extends BaseType
          * @var ?SourceDocumentTypeType Forrás dokumentum bizonylat típusa.
          */
         #[SkipWhenEmpty]
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\SourceDocumentTypeType'>")]
         public ?SourceDocumentTypeType $sourceDocumentType = null,
     ) {
         parent::__construct();

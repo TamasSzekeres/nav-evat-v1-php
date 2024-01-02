@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\FieldTypeType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\SimpleText15NotBlankTypeValidation;
@@ -27,6 +28,7 @@ final readonly class DeclarationFieldDataType extends BaseType
         /**
          * @var FieldTypeType Bevallási mező típusa.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\FieldTypeType'>")]
         public FieldTypeType $fieldType,
     ) {
         parent::__construct();

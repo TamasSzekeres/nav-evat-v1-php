@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LightSideSoftware\EVat\V1\Types;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use LightSideSoftware\EVat\V1\Types\Enums\AttachmentCategoryType;
 use LightSideSoftware\NavApi\V3\Types\Annotations\EntityIdTypeValidation;
@@ -27,6 +28,7 @@ final readonly class AttachmentType extends BaseType
         /**
          * @var AttachmentCategoryType Csatolmány típus.
          */
+        #[Type("Enum<'LightSideSoftware\EVat\V1\Types\Enums\AttachmentCategoryType'>")]
         public AttachmentCategoryType $attachmentCategory,
 
         /**
