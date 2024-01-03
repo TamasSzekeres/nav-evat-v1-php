@@ -14,6 +14,7 @@ use LightSideSoftware\EVat\V1\Types\Annotations\TaxpointDateTypeValidation;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationFrequencyType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationKindType;
 use LightSideSoftware\EVat\V1\Types\Enums\DeclarationTypeType;
+use LightSideSoftware\NavApi\V3\Types\Annotations\TaxPayerIdTypeValidation;
 use LightSideSoftware\NavApi\V3\Types\BaseType;
 
 /**
@@ -40,6 +41,7 @@ final readonly class DeclarationInfoType extends BaseType
         /**
          * @var string Adószám.
          */
+        #[TaxPayerIdTypeValidation]
         #[XmlElement(cdata: false)]
         public string $taxNumber,
 
